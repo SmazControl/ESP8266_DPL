@@ -114,6 +114,10 @@ void handleGetNext() {
 
 void setup() {
   Serial.begin(115200);
+  pinMode(D7,OUTPUT);
+  pinMode(D8,OUTPUT);
+  digitalWrite(D7,LOW);
+  digitalWrite(D8,LOW);
   WiFi.mode(WIFI_AP);
   WiFi.softAPConfig(apIP, apIP, IPAddress(255, 255, 255, 0));
   char pad[4]; // Max 4 digits

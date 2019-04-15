@@ -104,6 +104,8 @@ void Sensor() {
               int eline = payload.indexOf('\n');
               int colon = payload.indexOf(':');
               int comma = payload.indexOf(',');
+              if (colon == (-1)) { break; }
+              if (comma == (-1)) { break; }
               ESP_id[Sensor_number] = payload.substring(0,colon);
               Sensor_name[Sensor_number] = payload.substring(colon+1,comma);
               if (eline==(-1)) {
@@ -209,9 +211,11 @@ void DPL_next() {
         HTTPClient http;
         int post = 0;
         Serial.print("[HTTP] begin...\n");
-        http.begin("http://www.esp.com/get");
+        http.begin("http://www.esp.com/gnext");
 
         Serial.print("[HTTP] GET...\n");
+        delay(5000);
+
         int httpCode = http.GET();
         if (httpCode > 0) {
           if (httpCode == HTTP_CODE_OK) {
@@ -221,6 +225,8 @@ void DPL_next() {
               int eline = payload.indexOf('\n');
               int colon = payload.indexOf(':');
               int comma = payload.indexOf(',');
+              if (colon == (-1)) { break; }
+              if (comma == (-1)) { break; }
               DPL_id[DPL_number] = payload.substring(0,colon);
               DPL_name[DPL_number] = payload.substring(colon+1,comma);
               if (eline==(-1)) {
@@ -255,7 +261,7 @@ void DPL_next() {
           PostData += UPL_id[i]+"DPL"+UPL_name[i]+"="+SUvalue+"&";
         }
         PostData = PostData.substring(0,PostData.length()-1); // Cut last &
-        http.begin("http://www.esp.com/post");
+        http.begin("http://www.esp.com/pnext");
         http.addHeader("Content-Type", "application/x-www-form-urlencoded");
         Serial.print("[HTTP] POST...\n");
         httpCode = http.POST(PostData);
@@ -306,6 +312,8 @@ void DPL_myid() {
         http.begin("http://www.esp.com/post");
         http.addHeader("Content-Type", "application/x-www-form-urlencoded");
         Serial.print("[HTTP] POST...\n");
+        delay(5000);
+
         int httpCode;
         httpCode = http.POST(PostData);
         if (httpCode > 0) {
@@ -334,6 +342,8 @@ void DPL_myid() {
               int eline = payload.indexOf('\n');
               int colon = payload.indexOf(':');
               int comma = payload.indexOf(',');
+              if (colon == (-1)) { break; }
+              if (comma == (-1)) { break; }
               UPL_id[UPL_number] = payload.substring(0,colon);
               UPL_name[UPL_number] = payload.substring(colon+1,comma);
               if (eline==(-1)) {
@@ -429,6 +439,8 @@ void main_host() {
               int eline = payload.indexOf('\n');
               int colon = payload.indexOf(':');
               int comma = payload.indexOf(',');
+              if (colon == (-1)) { break; }
+              if (comma == (-1)) { break; }
               UPL_id[UPL_number] = payload.substring(0,colon);
               UPL_name[UPL_number] = payload.substring(colon+1,comma);
               if (eline==(-1)) {

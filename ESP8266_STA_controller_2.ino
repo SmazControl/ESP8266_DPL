@@ -201,7 +201,7 @@ void DPL_next() {
     sprintf(pad,"%04d",DPLINE_HOST_ID+1);
     String spad(pad);
     // except DPL_number>=1000 bypass
-    if ((WW_SSID[stp].substring(0,3)=="DPL") && (WW_SSID[stp].substring(3,7)==spad) && DPL_number<DPL_max) {
+    if ((WW_SSID[stp].substring(0,3)=="DPL") && (WW_SSID[stp].substring(3,7)==spad)) {
       check_non_next_HOST = false;
       ESP_SSID = WW_SSID[stp];
       
@@ -217,6 +217,7 @@ void DPL_next() {
         http.begin(Id_URL+"/gnext");
 
         Serial.print("[HTTP] GET...\n");
+        delay(5000);
         int httpCode = http.GET();
         if (httpCode > 0) {
           if (httpCode == HTTP_CODE_OK) {
@@ -291,7 +292,7 @@ void DPL_myid() {
     char mpad[4]; // Max 4 digits
     sprintf(mpad,"%04d",DPLINE_HOST_ID);
     String mspad(mpad);
-    if ((DPLINE_HOST_ID>1)&&(WW_SSID[stp].substring(0,3)=="DPL") && (WW_SSID[stp].substring(3,7)==mspad) && (UPL_number<=UPL_max)) {
+    if ((DPLINE_HOST_ID>1)&&(WW_SSID[stp].substring(0,3)=="DPL") && (WW_SSID[stp].substring(3,7)==mspad)) {
       check_non_HOST = false;
       ESP_SSID = WW_SSID[stp];
       
@@ -313,6 +314,7 @@ void DPL_myid() {
         http.begin("http://www.esp.com/post");
         http.addHeader("Content-Type", "application/x-www-form-urlencoded");
         Serial.print("[HTTP] POST...\n");
+        delay(5000);
         int httpCode;
         httpCode = http.POST(PostData);
         if (httpCode > 0) {
