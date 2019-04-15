@@ -5,13 +5,13 @@ ESP8266 Data Pipe Line Example
 
 First Step to Try ESP-DPL
 =========================
-Part List 
-6 Pcs. of ESP8266
-6 Micro USB Cable
-USB Hub
-6 Yellow LED
-6 Red LED
-6 330 Ohm Resistant
+*Part List 
+*6 Pcs. of ESP8266
+*6 Micro USB Cable
+*USB Hub
+*6 Yellow LED
+*6 Red LED
+*6 330 Ohm Resistant
 
 ![ESP-DPL-Indicate-LED](https://github.com/SmazControl/ESP8266_DPL/blob/master/ESP-DPL-diagram.png?raw=true)
 
