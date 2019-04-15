@@ -22,3 +22,5 @@ Extension of ESP-DPL
 - ESP8266_AP_clone_WiFi_router_with_JS
 - is Vitual Server that serve Incomming Data Graph 
 - on Data Pipe Line via JS gauge 
+
+![ESP-DPL-Graph](https://github.com/SmazControl/ESP8266_DPL/blob/master/graph.jpg?raw=true)
