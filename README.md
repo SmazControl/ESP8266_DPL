@@ -24,3 +24,7 @@ Extension of ESP-DPL
 - on Data Pipe Line via JS gauge 
 
 ![ESP-DPL-Graph](https://github.com/SmazControl/ESP8266_DPL/blob/master/graph.jpg?raw=true)
+
+How to Install SPIFF for Graph
+==============================
+https://github.com/esp8266/arduino-esp8266fs-plugin
